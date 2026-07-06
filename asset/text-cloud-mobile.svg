@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 610 410" fill="none">
+  <!--
+    MOBILE CHAT CLOUD v2 — smoother, gentler outline than v1.
+    Safe text zone (as % of this SVG's rendered box, centered both axes):
+      width:  50% of rendered width
+      height: 45% of rendered height
+      centered horizontally and vertically
+    In viewBox units:
+      x: 155 to 455  (width 300)
+      y: 111 to 300  (height ~189)
+  -->
+
+  <rect id="safe-text-zone" x="155" y="111" width="300" height="189"
+        fill="none" stroke="red" stroke-dasharray="6 6" stroke-width="2" opacity="0"/>
+
+  <!-- main cloud outline (smooth, gentle wobble) -->
+  <path d="M 558.60,205.00 C 559.94,236.24 542.54,275.51 513.16,300.58 C 483.79,325.66 429.55,347.06 382.35,355.45 C 335.15,363.85 276.00,360.83 229.95,350.98 C 183.91,341.12 136.07,320.67 106.09,296.34 C 76.11,272.01 51.54,236.12 50.07,205.00 C 48.60,173.88 67.59,134.53 97.27,109.62 C 126.95,84.70 181.04,63.92 228.15,55.52 C 275.26,47.12 333.79,49.62 379.95,59.22 C 426.10,68.82 475.31,88.83 505.08,113.13 C 534.86,137.42 557.25,173.76 558.60,205.00 Z"
+        stroke="#1B1B1B" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- three small accent tick marks, top-right -->
+  <line x1="512" y1="90" x2="537" y2="65" stroke="#1B1B1B" stroke-width="6" stroke-linecap="round"/>
+  <line x1="540" y1="103" x2="570" y2="85" stroke="#1B1B1B" stroke-width="6" stroke-linecap="round"/>
+  <line x1="557" y1="125" x2="590" y2="115" stroke="#1B1B1B" stroke-width="6" stroke-linecap="round"/>
+</svg>
