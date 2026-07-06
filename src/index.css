@@ -1,0 +1,1059 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600&family=Patrick+Hand&family=Permanent+Marker&family=Caveat&family=Architects+Daughter&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: #ff3c00;
+  overflow-x: clip;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: #ffffff;
+}
+
+
+/* Custom scrollbar styling for premium look */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #ff3c00;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Scoped styles for Our Manifesto section (Copula/Zion styled) */
+.manifesto-section {
+  position: relative;
+  height: 400vh;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .manifesto-section {
+    height: 500vh;
+  }
+}
+
+.manifesto-sticky {
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 0;
+  display: flex !important;
+  height: 100vh;
+  width: 100%;
+  align-items: center;
+  overflow: hidden;
+  background-color: #1200FF !important; /* Royal Blue */
+  color: #ffffff;
+}
+
+/* header (top-left) */
+.manifesto-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 40px;
+  z-index: 10;
+}
+.manifesto-header svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  animation: spin 10s linear infinite;
+}
+.manifesto-header p {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1;
+}
+
+/* curved text (SVG) */
+.curved-text-wrapper {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.curved-text-wrapper svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 140%; /* slightly wider to prevent cropping on rotation */
+  height: auto;
+  transform: translate(-50%, -50%) rotate(-10deg);
+  will-change: transform, opacity;
+  overflow: visible !important;
+}
+.curved-text-wrapper svg textPath {
+  font-family: 'Anton', sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.015em;
+  font-size: clamp(32px, 6.5vw, 92px);
+  text-transform: uppercase;
+  fill: #ffffff;
+}
+@media (min-width: 768px) {
+  .curved-text-wrapper svg textPath {
+    font-size: clamp(48px, 6.5vw, 100px);
+  }
+}
+
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-spin-slow {
+  animation: spin 10s linear infinite;
+}
+
+/* Work Process Orbiting Bead styling rules */
+.orbit-bead {
+  position: absolute !important;
+  width: 9px !important;
+  height: 9px !important;
+  border-radius: 50% !important;
+  background: #111111 !important;
+  top: 0 !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  z-index: 20 !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+/* About Us Section Styles */
+.about-section {
+  position: relative;
+  height: 350vh;
+  width: 100%;
+}
+
+.about-sticky {
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 0;
+  display: flex !important;
+  height: 100vh;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #ff3c00 !important; /* orange */
+  color: #ffffff;
+}
+
+.about-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 40px;
+  z-index: 10;
+}
+.about-label svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  animation: spin 10s linear infinite;
+}
+.about-label span {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1;
+}
+
+.about-headline {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 2;
+  width: 90%;
+  max-width: 1000px;
+}
+.about-headline h2 {
+  font-family: 'Anton', sans-serif;
+  color: #ffffff;
+  font-size: clamp(2.5rem, 7vw, 6.2rem);
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.about-paragraph-wrap {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: left;
+  z-index: 2;
+  width: 88%;
+  max-width: 1400px;
+  height: clamp(160px, 22.5vw, 420px);
+  opacity: 0;
+}
+
+.paragraph-base {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'Anton', sans-serif;
+  color: rgba(255, 255, 255, 0.22) !important; /* dim white base */
+  font-size: clamp(1.5rem, 3.6vw, 3.8rem);
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.paragraph-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'Anton', sans-serif;
+  color: #ffffff !important; /* fully lit white overlay */
+  font-size: clamp(1.5rem, 3.6vw, 3.8rem);
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  margin: 0;
+  /* Reveal mask logic */
+  mask-image: linear-gradient(to right, black 0%, black var(--reveal, 0%), transparent calc(var(--reveal, 0%) + 8%), transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, black 0%, black var(--reveal, 0%), transparent calc(var(--reveal, 0%) + 8%), transparent 100%);
+}
+
+.font-handwritten {
+  font-family: 'Architects Daughter', 'Caveat', cursive !important;
+}
+
+.services-inline-illustration {
+  display: none;
+}
+
+/* Hero Section Base Desktop Rules */
+.hero-flourish {
+  display: none;
+}
+.hero-hamburger {
+  display: none;
+}
+.hero-br-mobile {
+  display: none;
+}
+.hero-br-desktop {
+  display: inline;
+}
+.hero-blue-square {
+  display: none;
+}
+
+/* ==========================================================================
+   Mobile Responsiveness (≤768px) Breakpoint Overrides
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* 1. Hero Section Layout */
+  .hero-section {
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow-y: auto !important;
+  }
+
+  .hero-canvas {
+    width: 100% !important;
+    height: auto !important;
+    max-width: none !important;
+    max-height: none !important;
+    aspect-ratio: auto !important;
+    overflow: visible !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    padding: 85px 1.5rem 6rem 1.5rem !important; /* leaves room for top absolute header */
+    min-height: 100vh !important;
+  }
+
+  /* 2. Top labels & nav row */
+  .hero-made-by {
+    position: absolute !important;
+    left: 1.5rem !important;
+    top: 24px !important;
+    width: auto !important;
+    font-size: 13px !important;
+    margin-bottom: 0 !important;
+    text-align: left !important;
+    line-height: 1.25 !important;
+    z-index: 20 !important;
+  }
+  
+  .hero-flourish {
+    display: none !important;
+  }
+
+  .hero-powered-by {
+    position: absolute !important;
+    right: 1.5rem !important;
+    top: 24px !important;
+    left: auto !important;
+    width: auto !important;
+    font-size: 13px !important;
+    margin-bottom: 0 !important;
+    text-align: right !important;
+    z-index: 20 !important;
+  }
+
+  .hero-powered-inner {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+  }
+
+  .hero-hamburger {
+    display: none !important;
+  }
+
+  /* 3. Headline Wrap & Sizes */
+  .hero-headline-container {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    width: 100% !important;
+    margin-top: 1.5rem !important;
+    margin-bottom: 0px !important;
+    z-index: 10 !important;
+  }
+  
+  .hero-headline-container h1 {
+    font-size: clamp(65px, 18vw, 96px) !important;
+    line-height: 0.95 !important;
+    letter-spacing: -0.02em !important;
+  }
+
+  .hero-br-mobile {
+    display: block !important;
+  }
+
+  .hero-br-desktop {
+    display: none !important;
+  }
+
+  /* 4. Subtext Wrap */
+  .hero-subtext-container {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    margin-top: 0.2rem !important;
+    margin-bottom: 1rem !important;
+    z-index: 10 !important;
+  }
+  
+  .hero-subtext-container p:first-child {
+    font-size: clamp(24px, 6.5vw, 32px) !important;
+  }
+  
+  .hero-subtext-container p:last-child {
+    font-size: clamp(18px, 5.2vw, 24px) !important;
+    margin-top: 0.3rem !important;
+  }
+
+  /* 5. CTA Button positioning */
+  .hero-cta-button {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    width: 310px !important;
+    height: 118px !important;
+    margin: 2.2rem auto 3rem auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 10 !important;
+  }
+  
+  .hero-cta-button span {
+    font-size: 19px !important;
+    text-decoration: underline !important;
+    letter-spacing: 0.05em !important;
+  }
+
+  /* 6. Decorative Graphics */
+  .hero-underline {
+    position: relative !important;
+    left: 4% !important;
+    top: auto !important;
+    width: 58% !important;
+    max-width: 260px !important;
+    height: 12px !important;
+    margin-top: -10px !important;
+    margin-bottom: 0.5rem !important;
+    z-index: 0 !important;
+    display: block !important;
+    overflow: visible !important;
+  }
+  
+  .hero-underline svg {
+    transform: translateY(-22%) !important;
+  }
+
+  .hero-asterisk {
+    position: absolute !important;
+    left: 70% !important;
+    top: 120px !important;
+    width: 28% !important;
+    height: auto !important;
+    z-index: 0 !important;
+  }
+
+  .hero-blue-dot {
+    position: absolute !important;
+    left: 88% !important;
+    top: 290px !important;
+    width: 10px !important;
+    height: 10px !important;
+    background-color: #1200FF !important;
+    border-radius: 50% !important;
+    z-index: 10 !important;
+    transform: none !important;
+  }
+
+  .hero-arrow {
+    position: absolute !important;
+    left: 58% !important;
+    top: 320px !important;
+    width: 36% !important;
+    height: auto !important;
+    z-index: 0 !important;
+    transform: rotate(5deg) !important;
+  }
+
+  .hero-squiggle {
+    position: absolute !important;
+    left: 70% !important;
+    bottom: 40px !important;
+    width: 22% !important;
+    height: auto !important;
+    z-index: 0 !important;
+  }
+
+  .hero-white-dot {
+    position: absolute !important;
+    left: 40% !important;
+    bottom: 50px !important;
+    width: 8px !important;
+    height: 8px !important;
+    background-color: #ffffff !important;
+    border-radius: 50% !important;
+    z-index: 10 !important;
+    transform: none !important;
+  }
+
+  .hero-ovals {
+    position: absolute !important;
+    left: -2% !important;
+    bottom: -20px !important;
+    width: 38% !important;
+    height: auto !important;
+    z-index: 0 !important;
+  }
+
+  /* 7. Manifesto Section Wavy Text Scaling Override */
+  .curved-text-wrapper svg textPath {
+    font-size: 155px !important;
+  }
+  .curved-text-wrapper svg text:last-of-type {
+    transform: translateY(45px) !important;
+  }  /* Hide select section labels on mobile to avoid layout clutter */
+  .manifesto-header,
+  .about-label {
+    display: none !important;
+  }
+
+  /* Compact label styling for Services and Process on mobile - relative in-flow placement */
+  .services-label,
+  .process-label {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    align-self: flex-start !important;
+    padding: 12px 24px 0 24px !important;
+    margin-bottom: 0px !important;
+    gap: 8px !important;
+    display: flex !important;
+  }
+  
+  .services-label div,
+  .process-label div {
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  /* Clear height/overflow restrictions to prevent bottom text clipping */
+  .services-section {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    position: relative !important;
+    height: auto !important;
+    min-height: 100vh !important; /* let it span full viewport */
+    overflow: hidden !important; /* prevent visual content bleed */
+    padding-top: 2rem !important; /* reduced padding since header is in-flow relative */
+    padding-bottom: 2rem !important; /* tight clean padding */
+  }
+
+  .process-section {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    position: relative !important;
+    height: auto !important;
+    min-height: 100vh !important; /* fits stacked content height exactly */
+    overflow: hidden !important;
+    padding-top: 0.5rem !important;
+    padding-bottom: 2rem !important; /* tight padding right after last circle */
+  }
+
+  .services-canvas {
+    width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+    max-width: none !important;
+    max-height: none !important;
+    aspect-ratio: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    padding: 1.5rem 1.5rem 2rem 1.5rem !important; /* reduced top padding since label is relative */
+  }
+
+  .services-left-col {
+    width: 100% !important;
+    margin-top: 0.5rem !important;
+  }
+
+  .services-right-col {
+    display: none !important;
+  }
+
+  .services-accordion-item {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+
+  .services-panel-inner {
+    padding-top: 1rem !important;
+    padding-bottom: 2.2rem !important;
+  }
+
+  .services-accordion-title {
+    font-size: clamp(28px, 8vw, 42px) !important;
+  }
+
+  .services-accordion-desc {
+    font-size: 15px !important;
+    max-width: 100% !important;
+  }
+
+  .services-accordion-tag {
+    font-size: 11px !important;
+    padding: 6px 12px !important;
+  }
+
+  .services-inline-illustration {
+    display: flex !important;
+    justify-content: flex-end !important;
+    margin-top: 0.75rem !important;
+    padding-right: 0.5rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .services-inline-illustration svg {
+    display: block !important;
+    width: 75px !important;
+    height: 75px !important;
+    opacity: 0;
+    transform: scale(0.85);
+    transition: opacity 0.35s ease-out, transform 0.35s ease-out;
+  }
+
+  /* When the panel's active expanded state completes, transition the SVG shape in */
+  .services-accordion-panel[style*="opacity: 1"] .services-inline-illustration svg {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* Make the AI portal shape slightly wider to fit its dual ellipses */
+  .services-accordion-item:nth-child(3) .services-inline-illustration svg {
+    width: 85px !important;
+    height: 85px !important;
+  }
+
+  /* ==========================================
+     Work Process Section Mobile Overrides
+     ========================================== */
+  .process-canvas {
+    width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+    max-width: none !important;
+    max-height: none !important;
+    aspect-ratio: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    padding: 1.0rem 1.5rem 2rem 1.5rem !important;
+  }
+
+  .process-row {
+    flex-direction: column !important;
+    gap: 0 !important;
+    margin-top: 1.2rem !important;
+  }
+
+  .process-circle {
+    width: 200px !important;
+    height: 200px !important;
+    aspect-ratio: 1/1 !important;
+    margin: 0 auto !important;
+    padding: 1.2rem !important;
+    background-color: #F2EDE8 !important; /* solid background masks overlapping boundaries */
+  }
+
+  .process-circle:not(:first-child) {
+    margin-top: -55px !important; /* vertical shingle overlap */
+  }
+
+  .process-circle-num {
+    font-size: 13px !important;
+  }
+
+  .process-circle-title {
+    font-size: clamp(18px, 5vw, 20px) !important;
+    margin-bottom: 0.3rem !important;
+  }
+
+  .process-circle-desc {
+    font-size: 11px !important;
+    line-height: 1.3 !important;
+  }  /* ==========================================
+     Contact Us Section Mobile Overrides
+     ========================================== */
+  .contact-section {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 4rem 1.5rem 3.5rem 1.5rem !important;
+    height: 100vh !important;
+    min-height: 100vh !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    position: relative !important;
+  }
+
+  .contact-squiggle {
+    position: absolute !important;
+    left: 8% !important;
+    top: 5.5% !important;
+    width: 95px !important;
+    height: 55px !important;
+    transform: rotate(-18deg) !important;
+    z-index: 10 !important;
+  }
+
+  .contact-blue-dot {
+    position: absolute !important;
+    right: 10% !important;
+    top: 13.5% !important;
+    left: auto !important;
+    width: 18px !important;
+    height: 18px !important;
+    min-width: 18px !important;
+    min-height: 18px !important;
+    border-radius: 50% !important;
+    background-color: #0029ff !important;
+    z-index: 10 !important;
+  }
+
+  .contact-headline-wrap {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+    margin-top: auto !important;
+    margin-bottom: 2rem !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    transform: none !important;
+    z-index: 10 !important;
+  }
+
+  .contact-headline-wrap h1 {
+    font-size: clamp(105px, 30vw, 150px) !important;
+    line-height: 1.05 !important;
+    letter-spacing: -0.04em !important;
+    text-align: center !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+  }
+
+  .contact-subtext {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    width: 90% !important;
+    max-width: 320px !important;
+    margin: 0 auto 2.2rem auto !important;
+    font-size: clamp(19px, 5.5vw, 22px) !important;
+    font-weight: 600 !important;
+    line-height: 1.35 !important;
+    color: #ffffff !important;
+    text-align: center !important;
+    z-index: 10 !important;
+  }
+
+  .contact-cta-button {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    width: 90% !important;
+    max-width: 380px !important;
+    height: 86px !important;
+    border-radius: 999px !important;
+    margin: 0 auto auto auto !important;
+    background-color: #F0EDE8 !important;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.18) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    z-index: 20 !important;
+  }
+
+  .contact-cta-button span {
+    font-size: clamp(18px, 5.5vw, 22px) !important;
+    letter-spacing: 0.02em !important;
+    font-family: 'Permanent Marker', sans-serif !important;
+    color: #000000 !important;
+    white-space: nowrap !important;
+  }
+
+  .contact-two-ovals {
+    position: absolute !important;
+    left: 10% !important;
+    bottom: 12% !important;
+    top: auto !important;
+    width: 110px !important;
+    height: 80px !important;
+    z-index: 10 !important;
+  }
+
+  .contact-white-dot {
+    position: absolute !important;
+    left: 8% !important;
+    bottom: 21% !important;
+    top: auto !important;
+    width: 12px !important;
+    height: 12px !important;
+    min-width: 12px !important;
+    min-height: 12px !important;
+    border-radius: 50% !important;
+    background-color: #ffffff !important;
+    z-index: 10 !important;
+  }
+
+  .contact-white-asterisk {
+    position: absolute !important;
+    right: 8% !important;
+    bottom: 11% !important;
+    left: auto !important;
+    top: auto !important;
+    width: 100px !important;
+    height: 80px !important;
+    z-index: 10 !important;
+  }
+
+  .contact-footer-text {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0.5rem !important;
+    font-size: 12px !important;
+    letter-spacing: 0.15em !important;
+    color: #ffffff !important;
+    opacity: 0.85 !important;
+    z-index: 10 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* ==========================================
+     About Us Section Mobile Overrides
+     ========================================== */
+  .about-section {
+    height: 450vh !important; /* increased height on mobile for taller text flow */
+  }
+  .about-paragraph-wrap {
+    height: 320px !important; /* prevents bottom text clipping/staying dim */
+  }
+
+  /* ==========================================
+     Footer Section Mobile Overrides
+     ========================================== */
+  footer {
+    height: 100vh !important;
+    min-height: 100vh !important;
+    padding: 2.2rem 1rem 1.8rem 1rem !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    box-sizing: border-box !important;
+  }
+  footer > div {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    aspect-ratio: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: space-between !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Headline */
+  footer h1 {
+    font-size: 16px !important; /* Will be overridden by fitLineToWidth inline styles on mobile */
+    line-height: 0.9 !important;
+    text-transform: uppercase !important;
+    max-width: none !important;
+    width: 100% !important;
+    margin: 0 !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .footer-headline {
+    position: relative !important;
+    top: 0 !important;
+    left: 5px !important; /* Offset by 5px from left edge */
+    width: calc(100% - 10px) !important; /* Spans full screen width minus 5px margin on both sides */
+    max-width: none !important;
+    height: 20.65vh !important; /* Exactly 20.65% of viewport height */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 5px 0 0 0 !important; /* 5px padding on top, 0 on sides to let JS width measure inner bounds exactly */
+    margin: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Flex Container for Poster & Cloud on mobile */
+  footer .flex-col {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 1.5rem !important;
+  }
+
+  /* Wanted Poster */
+  footer img {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    width: clamp(145px, 51vw, 175px) !important; /* Slightly larger poster */
+    height: auto !important;
+    margin-top: -2rem !important; /* Overlaps headline block */
+    margin-bottom: 0 !important;
+    transform: none !important; /* Reset translateY */
+  }
+
+  /* Speech Cloud Container */
+  .footer-speech-cloud-mobile {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    width: 98% !important;
+    max-width: 390px !important;
+    height: 330px !important;
+    margin: -4.8rem auto 0 auto !important; /* Overlaps poster */
+  }
+
+  /* Force the raw SVG to scale to the explicit 100% container bounds */
+  .footer-speech-cloud-mobile svg {
+    width: 100% !important;
+    height: 100% !important;
+    display: block !important;
+  }
+
+  /* Mobile text container centered and constrained to exactly 50% x 45% safe zone */
+  .footer-mobile-text-container {
+    position: absolute !important;
+    inset: 0 !important;
+    margin: auto !important;
+    width: 50% !important;
+    height: 45% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+  
+  .footer-mobile-text-container p {
+    font-size: clamp(10px, 2.7vw, 11px) !important;
+    line-height: 1.25 !important;
+    margin: 0 0 0.35rem 0 !important;
+  }
+  
+  .footer-mobile-text-container p:last-child {
+    font-size: clamp(11px, 2.9vw, 12px) !important;
+    margin-top: 0.12rem !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* CTA Button */
+  .footer-cta-button {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    width: 88% !important; /* Wider button */
+    max-width: 325px !important;
+    height: 70px !important; /* Taller button */
+    border-radius: 999px !important;
+    margin: 2.8rem auto auto auto !important; /* Centered spacer */
+    background-color: #F0EDE8 !important;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.18) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    z-index: 40 !important;
+  }
+  .footer-cta-button span {
+    font-size: clamp(18px, 4.8vw, 21px) !important; /* Scaled font size */
+    font-family: 'Permanent Marker', sans-serif !important;
+    color: #000000 !important;
+    white-space: nowrap !important;
+  }
+
+  /* Bottom contact bar side-by-side row */
+  .footer-bottom-row {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin-top: auto !important;
+    padding: 0 0.5rem !important;
+    z-index: 20 !important;
+  }
+
+  /* Bottom contact info stacked */
+  .footer-contact-info {
+    position: relative !important;
+    left: auto !important;
+    bottom: auto !important;
+    margin: 0 !important;
+    text-align: left !important;
+    align-items: flex-start !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .footer-contact-info a {
+    font-size: 12.5px !important;
+    font-weight: 600 !important;
+    margin-bottom: 2px !important;
+  }
+  .footer-contact-info span {
+    font-size: 10.0px !important;
+    font-weight: 400 !important;
+    opacity: 0.65 !important;
+  }
+
+  .footer-social-icons {
+    position: relative !important;
+    right: auto !important;
+    bottom: auto !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 12px !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+  }
+  .footer-social-icons a {
+    width: 38px !important;
+    height: 38px !important;
+    border-radius: 50% !important;
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .footer-social-icons a svg {
+    width: 15px !important;
+    height: 15px !important;
+  }
+}
+
+
+
