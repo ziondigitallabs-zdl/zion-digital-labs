@@ -398,7 +398,7 @@ body {
     top: auto !important;
     width: 310px !important;
     height: 118px !important;
-    margin: 2.2rem auto 3rem auto !important;
+    margin: 1.7rem auto 3rem auto !important; /* shifted up by ~8px */
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -849,23 +849,24 @@ body {
   }
   .about-paragraph-wrap {
     height: 320px !important; /* prevents bottom text clipping/staying dim */
-  }
-
-  /* ==========================================
+  }  /* ==========================================
      Footer Section Mobile Overrides
      ========================================== */
   footer {
-    height: 100vh !important;
+    height: auto !important;
     min-height: 100vh !important;
-    padding: 2.2rem 1rem 1.8rem 1rem !important;
-    overflow: hidden !important;
+    min-height: 100dvh !important; /* support modern dynamic viewport height */
+    padding: 1.5rem 1rem 1.5rem 1rem !important; /* slightly tighter padding */
+    overflow: visible !important; /* let overflowing content scroll in-page naturally */
     display: flex !important;
     flex-direction: column !important;
     box-sizing: border-box !important;
   }
   footer > div {
     width: 100% !important;
-    height: 100% !important;
+    height: auto !important;
+    min-height: 100vh !important;
+    min-height: 100dvh !important;
     max-width: none !important;
     max-height: none !important;
     aspect-ratio: auto !important;
@@ -896,7 +897,7 @@ body {
     left: 5px !important; /* Offset by 5px from left edge */
     width: calc(100% - 10px) !important; /* Spans full screen width minus 5px margin on both sides */
     max-width: none !important;
-    height: 20.65vh !important; /* Exactly 20.65% of viewport height */
+    height: clamp(100px, 20.65vh, 130px) !important; /* Dynamic height with bounds caps */
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -918,7 +919,7 @@ body {
     position: relative !important;
     left: auto !important;
     top: auto !important;
-    width: clamp(145px, 51vw, 175px) !important; /* Slightly larger poster */
+    width: clamp(150px, 52vw, 180px) !important; /* Slightly larger poster as requested */
     height: auto !important;
     margin-top: -2rem !important; /* Overlaps headline block */
     margin-bottom: 0 !important;
@@ -932,8 +933,8 @@ body {
     top: auto !important;
     width: 98% !important;
     max-width: 390px !important;
-    height: 330px !important;
-    margin: -4.8rem auto 0 auto !important; /* Overlaps poster */
+    height: clamp(230px, 32vh, 290px) !important; /* height-responsive bubble */
+    margin: -3.8rem auto 0 auto !important; /* Overlaps poster */
   }
 
   /* Force the raw SVG to scale to the explicit 100% container bounds */
@@ -959,14 +960,14 @@ body {
   }
   
   .footer-mobile-text-container p {
-    font-size: clamp(10px, 2.7vw, 11px) !important;
-    line-height: 1.25 !important;
-    margin: 0 0 0.35rem 0 !important;
+    font-size: clamp(8.5px, 2.4vw, 10.5px) !important; /* height-responsive font size */
+    line-height: 1.22 !important;
+    margin: 0 0 0.3rem 0 !important;
   }
   
   .footer-mobile-text-container p:last-child {
-    font-size: clamp(11px, 2.9vw, 12px) !important;
-    margin-top: 0.12rem !important;
+    font-size: clamp(9.5px, 2.6vw, 11.5px) !important;
+    margin-top: 0.1rem !important;
     margin-bottom: 0 !important;
   }
 
@@ -979,7 +980,7 @@ body {
     max-width: 325px !important;
     height: 70px !important; /* Taller button */
     border-radius: 999px !important;
-    margin: 2.8rem auto auto auto !important; /* Centered spacer */
+    margin: 2.2rem auto auto auto !important; /* Centered spacer */
     background-color: #F0EDE8 !important;
     box-shadow: 0 12px 35px rgba(0,0,0,0.18) !important;
     display: flex !important;
